@@ -4,6 +4,14 @@ import BackgroundImage from "gatsby-background-image"
 
 import { useStaticQuery, graphql } from "gatsby"
 
+
+
+// to get image src
+// fluid(quality: 90, maxWidth: 4160) {
+//   src
+// }
+//  but we are using gatsby-image to get optimized one
+//   all /images file already exist in data layer using gatsby-source-filesystem
 const getImage = graphql`
   query {
     defaultBcg: file(relativePath: { eq: "defaultBcg.jpeg" }) {

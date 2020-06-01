@@ -21,6 +21,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
+  // generate tour details pages 
   data.tours.edges.forEach(({ node }) => {
     createPage({
       path: `tours/${node.slug}`,
@@ -30,6 +31,7 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+  // generate post details pages 
   data.posts.edges.forEach(({ node }) => {
     createPage({
       path: `blog/${node.slug}`,
@@ -46,6 +48,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // how many pages
   const numPages = Math.ceil(posts.length / postsPerPage)
 
+  // generate post pagination pages
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
       path: i === 0 ? `/blogs` : `/blogs/${i + 1}`,
